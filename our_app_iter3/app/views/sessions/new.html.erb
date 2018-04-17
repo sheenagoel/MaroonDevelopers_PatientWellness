@@ -1,0 +1,61 @@
+<html lang="en">
+<% provide(:title, 'Log in') %>
+
+<body>
+  <br>
+  <br>
+  </br>
+  </br>
+<div class="popup" onclick="myFunction()">CLICK ME !
+  <span class="popuptext" id="myPopup">Want to know perks of being WEB ENABLED? Please contact help desk!</span>
+</div>
+<script>
+// When the user clicks on <div>, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
+<p>Translate this page:</p>
+
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es',}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
+
+
+
+
+
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+      
+      <%= f.label :Phone %>
+      <%= f.text_field :phone, class: 'form-control' %>
+      
+      <%= f.label :password %>
+      <%= link_to "(forgot password)", new_password_reset_path %>
+      <%= f.password_field :password, class: 'form-control' %>
+      
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+      
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+    
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
