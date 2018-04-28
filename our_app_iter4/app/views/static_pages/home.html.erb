@@ -1,0 +1,66 @@
+<html lang="en">
+
+<body>
+<br>
+<br>
+  <br>
+  </br>
+</br>
+</br>
+<div class="popup" onclick="myFunction()">Click me!
+  <span class="popuptext" id="myPopup">Want to know perks of being WEB ENABLED? Please contact help desk!</span>
+</div>
+<script>
+// When the user clicks on <div>, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
+
+<p>Translate this page:</p>
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es',}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Announcements/Feedback</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1 style="background-image: url("leaf.jpg");">Welcome to the Texas Avenue Clinic Wellness App</h1>
+
+    <h2>
+      This is the home page for the 
+      wellness application.
+    </h2>
+    
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>  
+  </div>
+  
+  <!-FIXME Abhineet changed%= link_to image_tag("rails.png", alt: "Rails logo"),
+              'http://rubyonrails.org' %-->
+<% end %>
