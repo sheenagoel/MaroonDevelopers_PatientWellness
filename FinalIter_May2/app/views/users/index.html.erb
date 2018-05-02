@@ -1,0 +1,15 @@
+<% provide(:title, 'All users') %>
+
+<% if current_user.admin? %>
+<h1> All</h1>
+<% else %>
+<h1>Classes</h1>
+<% end %>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>

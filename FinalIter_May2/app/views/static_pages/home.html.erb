@@ -1,0 +1,56 @@
+<html lang="en">
+  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+<body>
+
+
+<p></p>
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es',}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Announcements/Feedback</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+<h1 style="font-size: 40px; color: white">A healthy outside starts from the inside!</h1>
+
+    <h2 style="color: white">
+      Welcome to the Texas Avenue Clinic Wellness App
+    </h2>
+   
+  <center style="margin-bottom:10px;"><%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %></center>   
+  <div class="center jumbotron1">
+    
+   
+  </div>
+  
+  
+  <!-FIXME Abhineet changed%= link_to image_tag("rails.png", alt: "Rails logo"),
+              'http://rubyonrails.org' %-->
+<% end %>
